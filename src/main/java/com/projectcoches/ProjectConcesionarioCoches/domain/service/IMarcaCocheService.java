@@ -33,7 +33,7 @@ public interface IMarcaCocheService {
      * Elimina una marca coche dada su ID
      *
      * @param idMarcaCoche marca coche a eliminar
-     * @return
+     * @return true si se elimino
      */
     boolean delete(Integer idMarcaCoche);
 

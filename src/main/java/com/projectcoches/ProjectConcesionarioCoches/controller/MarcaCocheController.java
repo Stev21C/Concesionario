@@ -11,32 +11,39 @@ import java.util.List;
 
 
 /**
- * Controlador rest de marca coche
+ * Controlador rest de marca coche, seria la API
  */
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(path = "/marcas_coches")
 public class MarcaCocheController {
+
     /**
      * Servicio de marca coches
      */
     private final IMarcaCocheService iMarcaCocheService;
 
-    @GetMapping()
-    public ResponseEntity<List<MarcaCochePojo>> getAll(){
+
+    /**
+     *
+     * @return lista de pojos
+     */
+    @GetMapping()      // El metodo va a estar manupulado por metodo GET http, para consultas
+    public ResponseEntity<List<MarcaCochePojo>> getAll(){   // Retorna lista de Pojos
         return ResponseEntity.ok(iMarcaCocheService.getAll());
         //return ResponseEntity.status(HttpStatus.OK).body(iMarcaCocheService.getAll());
         //return ResponseEntity.status(HttpStatus.OK).body(iMarcaCocheService.getAll());
         //return new ResponseEntity<>(iMarcaCocheService.getAll(), HttpStatus.OK); // Alternativa crear response entity
     }
 
+
     @GetMapping(path = "/{id}")
-    public ResponseEntity<MarcaCochePojo> getMarcaCoche(@PathVariable Integer id){
+    public ResponseEntity<MarcaCochePojo>getMarcaCoche(@PathVariable Integer id){
         return ResponseEntity.of(iMarcaCocheService.getMarcaCoche(id));
     }
 
     @PostMapping
-    public ResponseEntity<MarcaCochePojo> save(@RequestBody MarcaCochePojo marcaCochePojoNew){
+    public ResponseEntity<MarcaCochePojo>save(@RequestBody MarcaCochePojo marcaCochePojoNew){
         try{
             return ResponseEntity.status(HttpStatus.CREATED).body(iMarcaCocheService.save(marcaCochePojoNew));
         }catch(Exception e){

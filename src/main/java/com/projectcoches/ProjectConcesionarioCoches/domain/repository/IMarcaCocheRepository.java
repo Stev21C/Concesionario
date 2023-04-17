@@ -20,11 +20,11 @@ public interface IMarcaCocheRepository {
      * @param id  Id de la marca de coche
      * @return Optional del marca coche encontrado
      */
-    Optional<MarcaCochePojo> getMarcaCoche(Integer id);  // Impide el nullpointer, al no encontrar id
+    Optional<MarcaCochePojo> getMarcaCoche(Integer id);  // Impide el nullpointerException, al no encontrar id
 
 
     /**
-     * Guarda una nueva marca coche
+     * Guarda una nueva marca coche, sirve para actualizar o update
      * @param newMarcaCoche Marca coche a guardar
      * @return  Marca coche guardada
      */
@@ -32,7 +32,7 @@ public interface IMarcaCocheRepository {
 
     /**
      * Elimina una marca coche dada su ID
-     * @param idMarcaCoche marca coche a eliminar
+     * @param idMarcaCoche id marca coche a eliminar
      */
     void delete(Integer idMarcaCoche);
 }

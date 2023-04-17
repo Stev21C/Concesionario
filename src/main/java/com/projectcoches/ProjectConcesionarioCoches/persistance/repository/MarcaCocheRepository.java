@@ -20,6 +20,7 @@ import java.util.Optional;
 public class MarcaCocheRepository implements IMarcaCocheRepository {
 
     // Se podria colocar @Autowired pero se debe colocar constructor
+
     /**
      * CRUD Marca ciche
      */
@@ -44,14 +45,14 @@ public class MarcaCocheRepository implements IMarcaCocheRepository {
     @Override
     public Optional<MarcaCochePojo> getMarcaCoche(Integer id) {
         return iMarcaCocheCRUDRepository.findById(id)
-                .map(iMarcaCocheMapper::toMarcaCochePojo);  // Con metodo por referencia
+                .map(iMarcaCocheMapper::toMarcaCochePojo);  // Con metodo por referencia, de mapper llame al pojo
                 // con Lambda .map(marcaCocheEntity -> iMarcaCocheMapper.toMarcaCochePojo(marcaCocheEntity));  // No vamos por entidad, por ende vamos por optional
     }
 
     @Override
-    public MarcaCochePojo save(MarcaCochePojo newMarcaCoche) {
-        MarcaCocheEntity marcaCocheEntity= iMarcaCocheMapper.toMarcaCocheEntity(newMarcaCoche);
-        return iMarcaCocheMapper.toMarcaCochePojo(iMarcaCocheCRUDRepository.save(marcaCocheEntity));
+    public MarcaCochePojo save(MarcaCochePojo newMarcaCoche) {   // Recibo mi pojo nuevo
+        MarcaCocheEntity marcaCocheEntity= iMarcaCocheMapper.toMarcaCocheEntity(newMarcaCoche); // con mapper la transformo a entidad
+        return iMarcaCocheMapper.toMarcaCochePojo(iMarcaCocheCRUDRepository.save(marcaCocheEntity)); // la entidad la guardo, la convierto a pojo y la devuelvo
     }
 
     @Override

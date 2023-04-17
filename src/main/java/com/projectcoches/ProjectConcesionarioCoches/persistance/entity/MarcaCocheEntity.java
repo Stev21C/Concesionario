@@ -14,8 +14,11 @@ import lombok.Setter;
 @Table(name= "marca_coche") // Poner nombre de la tabla de la DB
 public class MarcaCocheEntity {
 
+    /**
+     * Id de la marca_coche
+     */
     @Id
-    //@Column(name= "id") sse coloca si tuviera != nombre en DB
+    //@Column(name= "id") sse coloca si tuviera != nombre en DB y el atributo
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 

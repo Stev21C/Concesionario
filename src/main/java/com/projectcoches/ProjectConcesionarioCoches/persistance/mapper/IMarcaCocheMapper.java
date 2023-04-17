@@ -20,8 +20,11 @@ public interface IMarcaCocheMapper {
      * @param marcaEntity Entidad a convertir
      * @return pojo convertido
      */
+
+    //Son opcionales los mapping
     @Mapping(source = "id", target = "id")  // source entidad origen
     @Mapping(source = "description", target = "description") // Target entidad destino
+
     MarcaCochePojo toMarcaCochePojo(MarcaCocheEntity marcaEntity);  // Recibo entity y transformo a pojo
 
     /**
@@ -29,7 +32,7 @@ public interface IMarcaCocheMapper {
      * @param marcaPojo pojo a convertir
      * @return entity convertido
      */
-    @InheritInverseConfiguration
+    @InheritInverseConfiguration    // Toma loa mapping o ajustes e inviertalos
     MarcaCocheEntity toMarcaCocheEntity(MarcaCochePojo marcaPojo);
 
     /**
