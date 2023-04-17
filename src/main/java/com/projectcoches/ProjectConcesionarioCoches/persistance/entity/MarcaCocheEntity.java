@@ -23,7 +23,7 @@ public class MarcaCocheEntity {
     private Integer id;
 
     @Column(name= "descripcion") // Opcional
-    private String description;
+    private String descripcion;
 
 
 }

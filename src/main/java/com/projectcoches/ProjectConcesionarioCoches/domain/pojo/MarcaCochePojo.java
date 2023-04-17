@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 //Data es mala practica usar, genera problemas al hacer test
-public class MarcaCochePojo {
+public class MarcaCochePojo {      // tambien se puede colocar MarcaCocheDto
 
     /**
      * Id de la marca
@@ -20,5 +20,5 @@ public class MarcaCochePojo {
     /**
      * Descripcion de la marca
      */
-    private String description;
+    private String descripcion;
 }

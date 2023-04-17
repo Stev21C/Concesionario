@@ -10,6 +10,7 @@ import java.util.Optional;
 
 /**
  *  Servicio de marca coche
+ *  Va la logica de negocio, que un campo deba tener 5 caracteres u otras validaciones
  */
 @RequiredArgsConstructor
 @Service
@@ -51,17 +52,33 @@ public class MarcaCocheService implements IMarcaCocheService {
 
 
     /**
+     * Actualiza una marca coche opcional
+     * @param newMarcaCoche Marca coche actualizar
+     * @return Optional Marca coche actualizada
+     */
+    @Override
+    public Optional<MarcaCochePojo> update(MarcaCochePojo newMarcaCoche) {
+        if(iMarcaCocheRepository.getMarcaCoche(newMarcaCoche.getId()).isEmpty()){ // Si la marca existe editela, sino esta vacio y retorne nulo
+            return Optional.empty();                                             // Se usa para no tener Nulos y queda mas limpio
+        }
+        return Optional.of(iMarcaCocheRepository.save(newMarcaCoche));
+    }
+
+
+    /**
      * Elimina marca coche dada su id
      * @param idMarcaCoche marca coche a eliminar
      * @return true si elimino
      */
     @Override
     public boolean delete(Integer idMarcaCoche) {
-        try{
-            iMarcaCocheRepository.delete(idMarcaCoche);
-            return true;
-        }catch (Exception e){
-            return false;
+        if(iMarcaCocheRepository.getMarcaCoche(idMarcaCoche).isEmpty()){ // Si la marca existe editela, sino esta vacio y retorne nulo
+            return false;                                   // Se usa para no tener Nulos y queda mas limpio
         }
+
+        // Colocar else seria redundar
+        iMarcaCocheRepository.delete(idMarcaCoche);
+        return true;
+
     }
 }

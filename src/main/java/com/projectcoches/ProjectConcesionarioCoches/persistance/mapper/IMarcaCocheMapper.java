@@ -23,7 +23,7 @@ public interface IMarcaCocheMapper {
 
     //Son opcionales los mapping
     @Mapping(source = "id", target = "id")  // source entidad origen
-    @Mapping(source = "description", target = "description") // Target entidad destino
+    @Mapping(source = "descripcion", target = "descripcion") // Target entidad destino
 
     MarcaCochePojo toMarcaCochePojo(MarcaCocheEntity marcaEntity);  // Recibo entity y transformo a pojo
 

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-16T00:09:46-0500",
+    date = "2023-04-17T01:03:14-0500",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.6 (Amazon.com Inc.)"
 )
 @Component
@@ -24,7 +24,7 @@ public class IMarcaCocheMapperImpl implements IMarcaCocheMapper {
         MarcaCochePojo marcaCochePojo = new MarcaCochePojo();
 
         marcaCochePojo.setId( marcaEntity.getId() );
-        marcaCochePojo.setDescription( marcaEntity.getDescription() );
+        marcaCochePojo.setDescripcion( marcaEntity.getDescripcion() );
 
         return marcaCochePojo;
     }
@@ -38,7 +38,7 @@ public class IMarcaCocheMapperImpl implements IMarcaCocheMapper {
         MarcaCocheEntity marcaCocheEntity = new MarcaCocheEntity();
 
         marcaCocheEntity.setId( marcaPojo.getId() );
-        marcaCocheEntity.setDescription( marcaPojo.getDescription() );
+        marcaCocheEntity.setDescripcion( marcaPojo.getDescripcion() );
 
         return marcaCocheEntity;
     }
