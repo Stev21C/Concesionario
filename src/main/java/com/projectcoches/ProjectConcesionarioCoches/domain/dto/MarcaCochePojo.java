@@ -1,4 +1,4 @@
-package com.projectcoches.ProjectConcesionarioCoches.domain.pojo;
+package com.projectcoches.ProjectConcesionarioCoches.domain.dto;
 
 import lombok.Getter;
 import lombok.Setter;

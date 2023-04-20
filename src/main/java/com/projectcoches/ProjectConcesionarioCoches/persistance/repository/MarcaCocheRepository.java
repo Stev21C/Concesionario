@@ -1,6 +1,6 @@
 package com.projectcoches.ProjectConcesionarioCoches.persistance.repository;
 
-import com.projectcoches.ProjectConcesionarioCoches.domain.pojo.MarcaCochePojo;
+import com.projectcoches.ProjectConcesionarioCoches.domain.dto.MarcaCochePojo;
 import com.projectcoches.ProjectConcesionarioCoches.domain.repository.IMarcaCocheRepository;
 import com.projectcoches.ProjectConcesionarioCoches.persistance.entity.MarcaCocheEntity;
 import com.projectcoches.ProjectConcesionarioCoches.persistance.mapper.IMarcaCocheMapper;
@@ -39,20 +39,20 @@ public class MarcaCocheRepository implements IMarcaCocheRepository {
 
     @Override
     public List<MarcaCochePojo> getAll() {
-        return iMarcaCocheMapper.toMarcasCochePojo(iMarcaCocheCRUDRepository.findAll()); // Invoco a mapper para traer pojo
+        return iMarcaCocheMapper.toMarcasCocheDto(iMarcaCocheCRUDRepository.findAll()); // Invoco a mapper para traer pojo
     }
 
     @Override
     public Optional<MarcaCochePojo> getMarcaCoche(Integer id) {
         return iMarcaCocheCRUDRepository.findById(id)
-                .map(iMarcaCocheMapper::toMarcaCochePojo);  // Con metodo por referencia, de mapper llame al pojo
-                // con Lambda .map(marcaCocheEntity -> iMarcaCocheMapper.toMarcaCochePojo(marcaCocheEntity));  // No vamos por entidad, por ende vamos por optional
+                .map(iMarcaCocheMapper::toMarcaCocheDto);  // Con metodo por referencia, de mapper llame al pojo
+                // con Lambda .map(marcaCocheEntity -> iMarcaCocheMapper.toMarcaCocheDto(marcaCocheEntity));  // No vamos por entidad, por ende vamos por optional
     }
 
     @Override
     public MarcaCochePojo save(MarcaCochePojo newMarcaCoche) {   // Recibo mi pojo nuevo
         MarcaCocheEntity marcaCocheEntity= iMarcaCocheMapper.toMarcaCocheEntity(newMarcaCoche); // con mapper la transformo a entidad
-        return iMarcaCocheMapper.toMarcaCochePojo(iMarcaCocheCRUDRepository.save(marcaCocheEntity)); // la entidad la guardo, la convierto a pojo y la devuelvo
+        return iMarcaCocheMapper.toMarcaCocheDto(iMarcaCocheCRUDRepository.save(marcaCocheEntity)); // la entidad la guardo, la convierto a pojo y la devuelvo
     }
 
     @Override

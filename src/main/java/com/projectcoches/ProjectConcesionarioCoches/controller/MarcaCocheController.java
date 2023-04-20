@@ -1,6 +1,6 @@
 package com.projectcoches.ProjectConcesionarioCoches.controller;
 
-import com.projectcoches.ProjectConcesionarioCoches.domain.pojo.MarcaCochePojo;
+import com.projectcoches.ProjectConcesionarioCoches.domain.dto.MarcaCochePojo;
 import com.projectcoches.ProjectConcesionarioCoches.domain.service.IMarcaCocheService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

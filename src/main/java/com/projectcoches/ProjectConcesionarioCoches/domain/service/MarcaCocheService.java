@@ -1,6 +1,6 @@
 package com.projectcoches.ProjectConcesionarioCoches.domain.service;
 
-import com.projectcoches.ProjectConcesionarioCoches.domain.pojo.MarcaCochePojo;
+import com.projectcoches.ProjectConcesionarioCoches.domain.dto.MarcaCochePojo;
 import com.projectcoches.ProjectConcesionarioCoches.domain.repository.IMarcaCocheRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

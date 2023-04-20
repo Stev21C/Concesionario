@@ -1,6 +1,6 @@
 package com.projectcoches.ProjectConcesionarioCoches.domain.service;
 
-import com.projectcoches.ProjectConcesionarioCoches.domain.pojo.MarcaCochePojo;
+import com.projectcoches.ProjectConcesionarioCoches.domain.dto.MarcaCochePojo;
 
 import java.util.List;
 import java.util.Optional;
