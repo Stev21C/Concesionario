@@ -33,6 +33,7 @@ public interface IMarcaCocheMapper {
      * @return entity convertido
      */
     @InheritInverseConfiguration    // Toma loa mapping o ajustes e inviertalos
+    @Mapping(target = "carEntities", ignore = true) // Ignora la relacion
     MarcaCocheEntity toMarcaCocheEntity(MarcaCochePojo marcaPojo);
 
     /**

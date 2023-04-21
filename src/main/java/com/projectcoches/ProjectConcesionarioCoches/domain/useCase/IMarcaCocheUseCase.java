@@ -1,11 +1,11 @@
-package com.projectcoches.ProjectConcesionarioCoches.domain.service;
+package com.projectcoches.ProjectConcesionarioCoches.domain.useCase;
 
 import com.projectcoches.ProjectConcesionarioCoches.domain.dto.MarcaCochePojo;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface IMarcaCocheService {
+public interface IMarcaCocheUseCase {
 
     /**
      * Devuelve lista  con todas las marcas coches

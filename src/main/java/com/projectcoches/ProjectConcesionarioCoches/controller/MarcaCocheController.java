@@ -1,7 +1,7 @@
 package com.projectcoches.ProjectConcesionarioCoches.controller;
 
 import com.projectcoches.ProjectConcesionarioCoches.domain.dto.MarcaCochePojo;
-import com.projectcoches.ProjectConcesionarioCoches.domain.service.IMarcaCocheService;
+import com.projectcoches.ProjectConcesionarioCoches.domain.useCase.IMarcaCocheUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class MarcaCocheController {
     /**
      * Servicio de marca coches
      */
-    private final IMarcaCocheService iMarcaCocheService;
+    private final IMarcaCocheUseCase iMarcaCocheUseCase;
 
 
     /**
@@ -30,7 +30,7 @@ public class MarcaCocheController {
      */
     @GetMapping()      // El metodo va a estar manupulado por metodo GET http, para consultas
     public ResponseEntity<List<MarcaCochePojo>> getAll(){   // Retorna lista de Pojos
-        return ResponseEntity.ok(iMarcaCocheService.getAll());
+        return ResponseEntity.ok(iMarcaCocheUseCase.getAll());
         //return ResponseEntity.status(HttpStatus.OK).body(iMarcaCocheService.getAll());
         //return ResponseEntity.status(HttpStatus.OK).body(iMarcaCocheService.getAll());
         //return new ResponseEntity<>(iMarcaCocheService.getAll(), HttpStatus.OK); // Alternativa crear response entity
@@ -43,7 +43,7 @@ public class MarcaCocheController {
      */
     @GetMapping(path = "/{id}")
     public ResponseEntity<MarcaCochePojo>getMarcaCoche(@PathVariable Integer id){
-        return ResponseEntity.of(iMarcaCocheService.getMarcaCoche(id));
+        return ResponseEntity.of(iMarcaCocheUseCase.getMarcaCoche(id));
     }
 
     /**
@@ -54,7 +54,7 @@ public class MarcaCocheController {
     @PostMapping
     public ResponseEntity<MarcaCochePojo>save(@RequestBody MarcaCochePojo marcaCochePojoNew){
         try{
-            return ResponseEntity.status(HttpStatus.CREATED).body(iMarcaCocheService.save(marcaCochePojoNew));
+            return ResponseEntity.status(HttpStatus.CREATED).body(iMarcaCocheUseCase.save(marcaCochePojoNew));
         }catch(Exception e){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
@@ -67,7 +67,7 @@ public class MarcaCocheController {
      * @return HttpCode OK, si la actualiza correctamente
      */
     @PatchMapping
-    public ResponseEntity<MarcaCochePojo>update(@RequestBody MarcaCochePojo marcaCochePojoUpdate){
+    public ResponseEntity<MarcaCochePojo> update(@RequestBody MarcaCochePojo marcaCochePojoUpdate){
 
         /*
         MarcaCochePojo marcaCochePojo = iMarcaCocheService.update(marcaCochePojoUpdate);
@@ -79,7 +79,7 @@ public class MarcaCocheController {
         }
         */
 
-        return ResponseEntity.of(iMarcaCocheService.update(marcaCochePojoUpdate));
+        return ResponseEntity.of(iMarcaCocheUseCase.update(marcaCochePojoUpdate));
         //return ResponseEntity.status(HttpStatus.OK).body(iMarcaCocheService.save(marcaCochePojoUpdate));
     }
 
@@ -90,7 +90,7 @@ public class MarcaCocheController {
      */
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Boolean>delete(@PathVariable Integer id){
-        return new ResponseEntity<>(this.iMarcaCocheService.delete(id) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(this.iMarcaCocheUseCase.delete(id) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 
 }

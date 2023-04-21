@@ -2,6 +2,7 @@ package com.projectcoches.ProjectConcesionarioCoches.persistance.repository;
 
 import com.projectcoches.ProjectConcesionarioCoches.domain.dto.MarcaCochePojo;
 import com.projectcoches.ProjectConcesionarioCoches.domain.repository.IMarcaCocheRepository;
+import com.projectcoches.ProjectConcesionarioCoches.persistance.crud.IMarcaCocheCRUDRepository;
 import com.projectcoches.ProjectConcesionarioCoches.persistance.entity.MarcaCocheEntity;
 import com.projectcoches.ProjectConcesionarioCoches.persistance.mapper.IMarcaCocheMapper;
 import lombok.RequiredArgsConstructor;

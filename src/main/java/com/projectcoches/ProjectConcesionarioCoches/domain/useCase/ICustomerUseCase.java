@@ -1,4 +1,4 @@
-package com.projectcoches.ProjectConcesionarioCoches.domain.service;
+package com.projectcoches.ProjectConcesionarioCoches.domain.useCase;
 
 import com.projectcoches.ProjectConcesionarioCoches.domain.dto.CustomerDto;
 import com.projectcoches.ProjectConcesionarioCoches.domain.dto.ResponsePassCustomerDto;
@@ -6,7 +6,7 @@ import com.projectcoches.ProjectConcesionarioCoches.domain.dto.ResponsePassCusto
 import java.util.List;
 import java.util.Optional;
 
-public interface ICustomerService {
+public interface ICustomerUseCase {
 
     /**
      * Devuelve lista  con todos los clientes
@@ -21,7 +21,7 @@ public interface ICustomerService {
 
     ResponsePassCustomerDto save(CustomerDto newCustomer);
 
-    Optional<CustomerDto> update(CustomerDto newCustomer);
+    Optional<CustomerDto> update(CustomerDto modifyCustomer);
 
     boolean delete(String cardId);
 }

@@ -3,6 +3,7 @@ package com.projectcoches.ProjectConcesionarioCoches.domain.service;
 import com.projectcoches.ProjectConcesionarioCoches.domain.dto.CustomerDto;
 import com.projectcoches.ProjectConcesionarioCoches.domain.dto.ResponsePassCustomerDto;
 import com.projectcoches.ProjectConcesionarioCoches.domain.repository.ICustomerRepository;
+import com.projectcoches.ProjectConcesionarioCoches.domain.useCase.ICustomerUseCase;
 import com.projectcoches.ProjectConcesionarioCoches.exception.EmailValidationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-public class CustomerService implements ICustomerService{
+public class CustomerService implements ICustomerUseCase {
 
 
     private final ICustomerRepository iCustomerRepository;
@@ -57,15 +58,15 @@ public class CustomerService implements ICustomerService{
     }
 
     @Override
-    public Optional<CustomerDto> update(CustomerDto newCustomer) {
+    public Optional<CustomerDto> update(CustomerDto modifyCustomer) {
 
         System.out.println("Customer a actualizar:");
-        System.out.println(newCustomer);
+        System.out.println(modifyCustomer);
 
-        if(iCustomerRepository.getCustomerByCardId(newCustomer.getCardId()).isEmpty()){ // Si la marca existe editela, sino esta vacio y retorne nulo
+        if(iCustomerRepository.getCustomerByCardId(modifyCustomer.getCardId()).isEmpty()){ // Si la marca existe editela, sino esta vacio y retorne nulo
             return Optional.empty();                                             // Se usa para no tener Nulos y queda mas limpio
         }
-        return Optional.of(iCustomerRepository.save(newCustomer));
+        return Optional.of(iCustomerRepository.save(modifyCustomer));
     }
 
     @Override

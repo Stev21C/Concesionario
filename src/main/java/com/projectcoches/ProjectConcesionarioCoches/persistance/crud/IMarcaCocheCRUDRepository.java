@@ -1,4 +1,4 @@
-package com.projectcoches.ProjectConcesionarioCoches.persistance.repository;
+package com.projectcoches.ProjectConcesionarioCoches.persistance.crud;
 
 import com.projectcoches.ProjectConcesionarioCoches.persistance.entity.MarcaCocheEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

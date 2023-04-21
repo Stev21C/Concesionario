@@ -2,6 +2,7 @@ package com.projectcoches.ProjectConcesionarioCoches.persistance.repository;
 
 import com.projectcoches.ProjectConcesionarioCoches.domain.dto.CustomerDto;
 import com.projectcoches.ProjectConcesionarioCoches.domain.repository.ICustomerRepository;
+import com.projectcoches.ProjectConcesionarioCoches.persistance.crud.ICustomerCRUDRepository;
 import com.projectcoches.ProjectConcesionarioCoches.persistance.mapper.ICustomerMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
