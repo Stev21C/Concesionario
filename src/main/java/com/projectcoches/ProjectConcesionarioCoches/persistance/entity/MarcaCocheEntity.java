@@ -29,6 +29,6 @@ public class MarcaCocheEntity {
     private String descripcion;
 
     @OneToMany(mappedBy = "marcaCocheEntity", orphanRemoval = true)
-    private List<CarEntity> carEntities = new ArrayList<>();
+    private List<CarEntity> carEntities;
 
 }
