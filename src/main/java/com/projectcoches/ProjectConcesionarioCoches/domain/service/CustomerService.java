@@ -5,7 +5,9 @@ import com.projectcoches.ProjectConcesionarioCoches.domain.dto.ResponsePassCusto
 import com.projectcoches.ProjectConcesionarioCoches.domain.repository.ICustomerRepository;
 import com.projectcoches.ProjectConcesionarioCoches.domain.useCase.ICustomerUseCase;
 import com.projectcoches.ProjectConcesionarioCoches.exception.EmailValidationException;
+import com.projectcoches.ProjectConcesionarioCoches.security.Roles;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
@@ -18,6 +20,8 @@ public class CustomerService implements ICustomerUseCase {
 
 
     private final ICustomerRepository iCustomerRepository;
+
+    private final PasswordEncoder passwordEncoder;
 
 
     @Override
@@ -46,8 +50,9 @@ public class CustomerService implements ICustomerUseCase {
          * Contraseña generada aleatoria desde backend
          */
         String passwordGenerated= generateRandomPassword(8);
-        newCustomer.setPassword(passwordGenerated);
+        newCustomer.setPassword(passwordEncoder.encode(passwordGenerated)); //se encripta la clave
         newCustomer.setActive(1);
+        newCustomer.setRol(Roles.CUSTOMER);
         iCustomerRepository.save(newCustomer);
 
         return new ResponsePassCustomerDto(passwordGenerated);
@@ -59,9 +64,6 @@ public class CustomerService implements ICustomerUseCase {
 
     @Override
     public Optional<CustomerDto> update(CustomerDto modifyCustomer) {
-
-        System.out.println("Customer a actualizar:");
-        System.out.println(modifyCustomer);
 
         if(iCustomerRepository.getCustomerByCardId(modifyCustomer.getCardId()).isEmpty()){ // Si la marca existe editela, sino esta vacio y retorne nulo
             return Optional.empty();                                             // Se usa para no tener Nulos y queda mas limpio

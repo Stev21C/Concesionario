@@ -12,7 +12,7 @@ public class CustomerDto {
 
     private String fullname;
 
-    private String  email;
+    private String email;
 
     private Double cellphoneNumber;
 
@@ -20,4 +20,5 @@ public class CustomerDto {
 
     private String password;
 
+    private String rol;
 }

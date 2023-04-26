@@ -4,6 +4,7 @@ import com.projectcoches.ProjectConcesionarioCoches.domain.dto.CarDto;
 import com.projectcoches.ProjectConcesionarioCoches.domain.repository.ICarRepository;
 import com.projectcoches.ProjectConcesionarioCoches.domain.useCase.ICarUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,10 @@ public class CarService implements ICarUseCase {
 
     @Override
     public List<CarDto> getAll() {
+        System.out.println("lista de AUTORIDADES");
+        var listaRoles = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+        System.out.println(listaRoles);
+
         return iCarRepository.getAll();
     }
 

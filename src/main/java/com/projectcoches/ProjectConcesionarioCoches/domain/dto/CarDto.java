@@ -9,6 +9,8 @@ public class CarDto {
 
     private Integer marcaCocheId;
 
+    private String marcaCocheString;
+
     private String reference;
 
     private Integer price;

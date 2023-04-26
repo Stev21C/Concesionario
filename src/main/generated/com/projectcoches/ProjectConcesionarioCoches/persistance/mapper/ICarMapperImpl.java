@@ -2,6 +2,7 @@ package com.projectcoches.ProjectConcesionarioCoches.persistance.mapper;
 
 import com.projectcoches.ProjectConcesionarioCoches.domain.dto.CarDto;
 import com.projectcoches.ProjectConcesionarioCoches.persistance.entity.CarEntity;
+import com.projectcoches.ProjectConcesionarioCoches.persistance.entity.MarcaCocheEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.processing.Generated;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-22T23:30:07-0500",
+    date = "2023-04-25T17:40:07-0500",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.6 (Amazon.com Inc.)"
 )
 @Component
@@ -23,6 +24,7 @@ public class ICarMapperImpl implements ICarMapper {
 
         CarDto carDto = new CarDto();
 
+        carDto.setMarcaCocheString( carEntityMarcaCocheEntityDescripcion( carEntity ) );
         carDto.setCodeCar( carEntity.getCodeCar() );
         carDto.setMarcaCocheId( carEntity.getMarcaCocheId() );
         carDto.setReference( carEntity.getReference() );
@@ -83,5 +85,20 @@ public class ICarMapperImpl implements ICarMapper {
         }
 
         return list;
+    }
+
+    private String carEntityMarcaCocheEntityDescripcion(CarEntity carEntity) {
+        if ( carEntity == null ) {
+            return null;
+        }
+        MarcaCocheEntity marcaCocheEntity = carEntity.getMarcaCocheEntity();
+        if ( marcaCocheEntity == null ) {
+            return null;
+        }
+        String descripcion = marcaCocheEntity.getDescripcion();
+        if ( descripcion == null ) {
+            return null;
+        }
+        return descripcion;
     }
 }

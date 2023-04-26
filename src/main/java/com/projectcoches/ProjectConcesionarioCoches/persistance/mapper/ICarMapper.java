@@ -10,6 +10,7 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface ICarMapper {
 
+    @Mapping(source = "marcaCocheEntity.descripcion", target = "marcaCocheString")
     CarDto toCarDto(CarEntity carEntity);
 
     @Mapping(target = "marcaCocheEntity", ignore = true) // Ignora la relacion
