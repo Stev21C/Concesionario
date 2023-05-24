@@ -32,13 +32,6 @@ public class CustomerController {
         return ResponseEntity.of(iCustomerUseCase.getCustomerByEmail(email));
     }
 
-    @PostMapping
-    public ResponseEntity<ResponsePassCustomerDto> save(@RequestBody CustomerDto customerDtoNew){
-        return ResponseEntity.status(HttpStatus.CREATED).body(iCustomerUseCase.save(customerDtoNew));
-
-
-    }
-
     @PatchMapping
     public ResponseEntity<CustomerDto> update(@RequestBody CustomerDto customerDtoUpdate){
         return ResponseEntity.of(iCustomerUseCase.update(customerDtoUpdate));

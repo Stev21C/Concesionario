@@ -4,6 +4,7 @@ import com.projectcoches.ProjectConcesionarioCoches.domain.dto.CustomerDto;
 import com.projectcoches.ProjectConcesionarioCoches.domain.dto.ResponsePassCustomerDto;
 import com.projectcoches.ProjectConcesionarioCoches.domain.repository.ICustomerRepository;
 import com.projectcoches.ProjectConcesionarioCoches.domain.useCase.ICustomerUseCase;
+import com.projectcoches.ProjectConcesionarioCoches.exception.CustomerNotExistException;
 import com.projectcoches.ProjectConcesionarioCoches.exception.EmailValidationException;
 import com.projectcoches.ProjectConcesionarioCoches.security.Roles;
 import lombok.RequiredArgsConstructor;
@@ -46,6 +47,15 @@ public class CustomerService implements ICustomerUseCase {
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")){
             throw new EmailValidationException();
         }
+
+        /**
+         * Validacion para no ingresar usuario que ya tiene correo o usuario registrado
+         */
+        if(getCustomerByCardId(newCustomer.getCardId()).isPresent() || getCustomerByEmail(newCustomer.getEmail()).isPresent()){
+            throw new CustomerNotExistException();
+        }
+
+
         /**
          * Contraseña generada aleatoria desde backend
          */
