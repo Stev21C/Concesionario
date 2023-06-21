@@ -60,6 +60,7 @@ public class CustomerService implements ICustomerUseCase {
          * Contraseña generada aleatoria desde backend
          */
         String passwordGenerated= generateRandomPassword(8);
+        //newCustomer.setPassword(passwordGenerated);
         newCustomer.setPassword(passwordEncoder.encode(passwordGenerated)); //se encripta la clave
         newCustomer.setActive(1);
         newCustomer.setRol(Roles.CUSTOMER);
