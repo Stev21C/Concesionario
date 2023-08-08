@@ -27,4 +27,6 @@ public class CarPurchaseEntity {
     @ManyToOne
     @JoinColumn(name = "coches_codigo_coche", insertable = false, updatable = false)
     private CarEntity carEntity;
+
+
 }

@@ -23,5 +23,5 @@ public class PurchaseResponseDto {
 
     private String paymentMethod;
 
-    private List<CarPurchaseResponseDto> carsResponse;  // Son los carros de la compra
+    private List<CarPurchaseResponseDto> carsPurchase;  // Son los carros de la compra
 }

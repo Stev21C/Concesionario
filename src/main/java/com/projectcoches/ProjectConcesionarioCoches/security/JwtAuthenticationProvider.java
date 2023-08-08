@@ -55,6 +55,7 @@ public class JwtAuthenticationProvider {
                 .withClaim("fullname", customerJwt.getFullname())
                 .withClaim("numberCellPhone", String.valueOf(customerJwt.getCellphoneNumber()))
                 .withClaim("email", customerJwt.getEmail())
+                .withClaim("rol", customerJwt.getRol())
                 .withIssuedAt(now)
                 .withExpiresAt(validity)
                 .sign(algorithm);

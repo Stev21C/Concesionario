@@ -1,4 +1,4 @@
-package com.projectcoches.ProjectConcesionarioCoches.domain.repository;
+package com.projectcoches.ProjectConcesionarioCoches.domain.useCase;
 
 import com.projectcoches.ProjectConcesionarioCoches.domain.dto.PurchaseBillResponseDto;
 import com.projectcoches.ProjectConcesionarioCoches.domain.dto.PurchaseRequestDto;
@@ -6,7 +6,7 @@ import com.projectcoches.ProjectConcesionarioCoches.domain.dto.PurchaseResponseD
 
 import java.util.List;
 
-public interface IPurchaseRepository {
+public interface IPurchaseUseCase {
 
     List<PurchaseResponseDto> getAll();
 

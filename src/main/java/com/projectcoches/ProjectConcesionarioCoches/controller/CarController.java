@@ -1,6 +1,7 @@
 package com.projectcoches.ProjectConcesionarioCoches.controller;
 
 import com.projectcoches.ProjectConcesionarioCoches.domain.dto.CarDto;
+import com.projectcoches.ProjectConcesionarioCoches.domain.dto.CustomerDto;
 import com.projectcoches.ProjectConcesionarioCoches.domain.useCase.ICarUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -40,6 +41,11 @@ public class CarController {
     public ResponseEntity<CarDto>save(@RequestBody CarDto carDtoNew){
         return ResponseEntity.status(HttpStatus.CREATED).body(iCarUseCase.save(carDtoNew));
 
+    }
+
+    @PatchMapping
+    public ResponseEntity<CarDto> update(@RequestBody CarDto carDtoUpdate){
+        return ResponseEntity.ok(iCarUseCase.save(carDtoUpdate));
     }
 
     @DeleteMapping(path = "/{idCar}")
