@@ -56,6 +56,9 @@ public class WebSecurityConfig {
                                 .requestMatchers(HttpMethod.DELETE, "/customers/**").hasRole(Roles.ADMIN)
                                 .requestMatchers(HttpMethod.POST, "/customers").permitAll()
 
+                                .requestMatchers(HttpMethod.POST,"/purchases/**").permitAll()
+                                .requestMatchers(HttpMethod.GET,"/purchases/**").permitAll()
+
                                 .requestMatchers(HttpMethod.GET,"/cars").hasRole(Roles.CUSTOMER)
                                 .requestMatchers(HttpMethod.POST,"/cars").hasRole(Roles.ADMIN)
                                 //.requestMatchers("/cars").hasAuthority("COMPRAR_PRIVILEGE")
