@@ -18,6 +18,16 @@ repositories {
 	mavenCentral()
 }
 
+ext {
+	set('springCloudAzureVersion', "5.2.0")
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "com.azure.spring:spring-cloud-azure-dependencies:${springCloudAzureVersion}"
+	}
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
@@ -30,6 +40,7 @@ dependencies {
     implementation 'org.projectlombok:lombok:1.18.26'
     implementation 'org.projectlombok:lombok:1.18.26'
     implementation 'org.projectlombok:lombok:1.18.26'
+	implementation 'com.azure.spring:spring-cloud-azure-starter-keyvault'
 
 
     compileOnly 'org.projectlombok:lombok'
@@ -38,6 +49,10 @@ dependencies {
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+bootJar {
+	archiveFileName = 'my-application.jar' // Nombre personalizado del archivo JAR
 }
 
 tasks.named('test') {
