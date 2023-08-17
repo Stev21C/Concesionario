@@ -15,7 +15,7 @@ FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 
 # Copia el archivo JAR generado en el paso anterior al contenedor
-COPY --from=builder /home/gradle/build/libs/my-application.jar .
+COPY --from=builder out/artifacts/ProjectConcesionarioCoches_jar/ProjectConcesionarioCoches.jar .
 
 # Expone el puerto en el que la aplicación está escuchando
 EXPOSE 8080
