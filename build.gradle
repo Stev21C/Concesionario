@@ -52,7 +52,7 @@ dependencies {
 }
 
 bootJar {
-	archiveFileName = 'my-application.jar' // Nombre personalizado del archivo JAR
+	archiveFileName = 'ProjectConcesionarioCoches.jar' // Nombre personalizado del archivo JAR
 }
 
 tasks.named('test') {

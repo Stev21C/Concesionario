@@ -21,4 +21,4 @@ COPY --from=builder out/artifacts/ProjectConcesionarioCoches_jar/ProjectConcesio
 EXPOSE 8080
 
 # Comando para ejecutar la aplicación
-CMD ["java", "-jar", "my-application.jar", "--spring.profiles.active=prod"]
+CMD ["java", "-jar", "ProjectConcesionarioCoches.jar", "--spring.profiles.active=prod"]
