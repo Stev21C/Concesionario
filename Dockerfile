@@ -1,11 +1,11 @@
 # Utiliza una imagen base de Gradle para compilar la aplicación
 FROM gradle:7.6.1-jdk17 AS builder
 
-# Copia los archivos de compilación necesarios al contenedor.
+# Copia los archivos de compilación necesarios al contenedor
 COPY build.gradle .
 COPY src ./src
 
-# Compila la aplicación y genera el archivo JAR.
+# Compila la aplicación y genera el archivo JAR
 RUN gradle build -x test
 
 # Utiliza una imagen base de OpenJDK para ejecutar la aplicación
