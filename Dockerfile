@@ -15,10 +15,10 @@ FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 
 # Copia el archivo JAR generado en el paso anterior al contenedor
-COPY --from=builder  out/artifacts/ProjectConcesionarioCoches_jar/ProjectConcesionarioCoches.jar
+COPY --from=builder build/libs/ProjectConcesionarioCoches.jar .
 
 # Expone el puerto en el que la aplicación está escuchando
 EXPOSE 8080
 
 # Comando para ejecutar la aplicación
-CMD ["java", "-jar", "my-application.jar", "--spring.profiles.active=prod"]
+CMD ["java", "-jar", "ProjectConcesionarioCoches.jar", "--spring.profiles.active=prod"]
